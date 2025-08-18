@@ -113,9 +113,6 @@ def create_config(branch, ip):
 def create_docker_compose_config():
     """Create a config file for starting test container."""
 
-    if branch_name == branch_name_prod:
-        return False
-
     with open(
             f"{test_stands_dir}/docker-compose.yml.template",
             'r'

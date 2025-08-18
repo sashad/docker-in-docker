@@ -7,15 +7,11 @@ import deploy
 
 
 def main():
-    if deploy.branch_name == deploy.branch_name_prod:
-        # Deploy to production.
-        pass
-    else:
-        # Deploy a testing stand.
-        if deploy.create_docker_compose_config():
-            deploy.copy_current_dir_to_destination(
-                f"{deploy.test_stands_dir}/{deploy.branch_name}"
-            )
+    # Deploy a testing stand.
+    if deploy.create_docker_compose_config():
+        deploy.copy_current_dir_to_destination(
+            f"{deploy.test_stands_dir}/{deploy.branch_name}"
+        )
 
 
 if __name__ == '__main__':
