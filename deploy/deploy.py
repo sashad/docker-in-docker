@@ -52,6 +52,8 @@ def copy_current_dir_to_destination(destination_dir):
         dst_path = os.path.join(destination_dir, item)
         if os.path.isdir(src_path):
             shutil.copytree(src_path, dst_path, dirs_exist_ok=True)
+        elif os.path.islink(src_path):
+            shutil.copytree(src_path, dst_path, symlinks=True)
         else:
             shutil.copy2(src_path, dst_path)
 
